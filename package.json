@@ -1,0 +1,11 @@
+{
+  "name": "node-validator",
+  "version": "1.0.0",
+  "description": "Express middleware to validate steam ids in the url",
+  "author": {
+    "name": "fletch"
+  },
+  "dependencies": {
+	"steamid": "git://github.com/fletchette/node-steamid"
+  }
+}
