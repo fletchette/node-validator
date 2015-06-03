@@ -1,13 +1,19 @@
 var SteamID = require("node-steamid");
 module.exports = function(app) {
 	app.param("sid", function(req, res, next, sid) {
-		console.log(req.params);
 		var sid = new SteamID(sid);
+		
+		var temp = {
+			valid: true
+		};
+		
 		if(sid.valid()) {
-			req.params.sid = sid.sid64();
-			next();
+			temp.sid = sid.sid64();
 		} else {
-			next(new Error("Invalid SteamID"));
+			temp.valid = false;
 		}
+		next();
+		
+		req.params.sid = temp;
 	});
 };
