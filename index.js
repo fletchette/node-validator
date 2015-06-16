@@ -12,8 +12,9 @@ module.exports = function(app) {
 		} else {
 			temp.valid = false;
 		}
+		req.sid = temp;
+		
 		next();
 		
-		req.params.sid = temp;
 	});
 };
